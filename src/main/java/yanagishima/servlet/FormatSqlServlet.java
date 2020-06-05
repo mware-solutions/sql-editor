@@ -50,6 +50,6 @@ public class FormatSqlServlet extends HttpServlet {
 	private String formatQuery(String query) {
 		SqlParser sqlParser = new SqlParser();
 		Statement statement = sqlParser.createStatement(query, new ParsingOptions(AS_DOUBLE));
-		return SqlFormatter.formatSql(statement, Optional.empty());
+		return SqlFormatter.formatSql(statement);
 	}
 }

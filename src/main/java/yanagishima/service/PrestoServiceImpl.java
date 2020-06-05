@@ -35,10 +35,9 @@ import java.util.stream.Collectors;
 import static com.google.common.base.MoreObjects.firstNonNull;
 import static com.google.common.base.Preconditions.checkState;
 import static io.airlift.units.DataSize.Unit.BYTE;
-import static io.prestosql.client.OkHttpUtil.basicAuth;
-import static io.prestosql.client.OkHttpUtil.setupTimeouts;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Verify.verify;
+import static io.prestosql.client.OkHttpUtil.*;
 import static java.lang.String.format;
 import static java.lang.String.join;
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -77,6 +76,7 @@ public class PrestoServiceImpl implements PrestoService {
         this.db = db;
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         setupTimeouts(builder, 5, SECONDS);
+        setupInsecureSsl(builder);
         httpClient = builder.build();
         this.fluency = buildStaticFluency(config);
         this.maxResultFileByteSize = config.getMaxResultFileByteSize();
@@ -311,7 +311,7 @@ public class PrestoServiceImpl implements PrestoService {
         event.put("errorName", status.getError().getErrorName());
         event.put("errorType", status.getError().getErrorType());
         event.put("message", status.getError().getMessage());
-        event.put("semanticErrorName", status.getError().getSemanticErrorName().orElse(null));
+        event.put("semanticErrorName", status.getError().getErrorName());
 
         try {
             fluency.emit(config.getFluentdFaliedTag().get(), event);

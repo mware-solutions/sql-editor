@@ -28,7 +28,7 @@ import java.util.Properties;
 
 public class YanagishimaServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(YanagishimaServer.class);
-    private static final String PROPERTY_FILENAME = "yanagishima.properties";
+    private static final String PROPERTY_FILENAME = "editor.properties";
 
     public static void main(String[] args) throws Exception {
         Properties properties = loadProperties(args, new OptionParser());
@@ -217,7 +217,7 @@ public class YanagishimaServer {
 
     private static Properties loadProperties(String[] args, OptionParser parser) throws IOException {
         OptionSpec<String> configDirectory = parser
-                .acceptsAll(Arrays.asList("c", "conf"), "The conf directory for Yanagishima")
+                .acceptsAll(Arrays.asList("c", "conf"), "The conf directory for SQL Editor")
                 .withRequiredArg().describedAs("conf").ofType(String.class);
 
         OptionSet options = parser.parse(args);
@@ -226,7 +226,7 @@ public class YanagishimaServer {
         }
 
         String path = options.valueOf(configDirectory);
-        LOGGER.info("Loading yanagishima settings file from " + path);
+        LOGGER.info("Loading settings file from " + path);
         File directory = new File(path);
         return loadConfiguration(directory);
     }
@@ -237,7 +237,7 @@ public class YanagishimaServer {
             throw new FileNotFoundException(propertyFile.getPath());
         }
 
-        LOGGER.info("Loading yanagishima properties file");
+        LOGGER.info("Loading properties file");
         try (InputStream inputStream = new BufferedInputStream(new FileInputStream(propertyFile))) {
             Properties properties = new Properties();
             properties.load(inputStream);

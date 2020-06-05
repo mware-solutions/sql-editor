@@ -1,32 +1,23 @@
-Visit [the official web site](https://yanagishima.github.io/yanagishima) for more information.
-
-# yanagishima [![Build Status](https://github.com/yanagishima/yanagishima/workflows/CI/badge.svg)](https://github.com/yanagishima/yanagishima/actions?query=workflow%3ACI+event%3Apush+branch%3Amaster)
-
-*yanagishima* is an open-source Web application for Presto, Hive, Elasticsearch and Spark.
-
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/SoneFYNCXJE/maxresdefault.jpg)](http://www.youtube.com/watch?v=SoneFYNCXJE)
-
-
-# Requirements to build yanagishima
+# Requirements to build
 
 * Java 11
 * Node.js
 
 ## Quick Start
 ```
-git clone https://github.com/yanagishima/yanagishima.git
-cd yanagishima
+git clone https://github.com/mware-solutions/sql-editor.git
+cd sql-editor
 git checkout -b [version] refs/tags/[version]
 ./gradlew distZip
 cd build/distributions
-unzip yanagishima-[version].zip
-cd yanagishima-[version]
-vim conf/yanagishima.properties
-nohup bin/yanagishima-start.sh >y.log 2>&1 &
+unzip sql-editor-[version].zip
+cd sql-editor-[version]
+vim conf/editor.properties
+nohup bin/editor-start.sh >y.log 2>&1 &
 ```
 see http://localhost:8080/
 
 # Stop
 ```
-bin/yanagishima-shutdown.sh
+bin/editor-shutdown.sh
 ```

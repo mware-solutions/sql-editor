@@ -23,7 +23,6 @@ import org.slf4j.LoggerFactory;
 
 import io.prestosql.client.ClientException;
 import yanagishima.config.YanagishimaConfig;
-import yanagishima.service.OldPrestoService;
 import yanagishima.service.PrestoService;
 
 @Singleton
@@ -32,13 +31,11 @@ public class PrestoAsyncServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private final PrestoService prestoService;
-    private final OldPrestoService oldPrestoService;
     private final YanagishimaConfig config;
 
     @Inject
-    public PrestoAsyncServlet(PrestoService prestoService, OldPrestoService oldPrestoService, YanagishimaConfig config) {
+    public PrestoAsyncServlet(PrestoService prestoService, YanagishimaConfig config) {
         this.prestoService = prestoService;
-        this.oldPrestoService = oldPrestoService;
         this.config = config;
     }
 
@@ -94,9 +91,6 @@ public class PrestoAsyncServlet extends HttpServlet {
     }
 
     private String executeQuery(String datasource, String query, Optional<String> sessionPropertyOptional, String user, Optional<String> prestoUser, Optional<String> prestoPassword) {
-        if (config.isUseOldPresto(datasource)) {
-            return oldPrestoService.doQueryAsync(datasource, query, user, prestoUser, prestoPassword);
-        }
         return prestoService.doQueryAsync(datasource, query, sessionPropertyOptional, user, prestoUser, prestoPassword);
     }
 

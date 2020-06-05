@@ -55,7 +55,7 @@ public class YanagishimaConfig {
 		String user = properties.getProperty("user." + datasource);
 		return firstNonNull(user, "yanagishima");
 	}
-	
+
 	public String getSource(String datasource) {
 		String source = properties.getProperty("source." + datasource);
 		return firstNonNull(source, "yanagishima");
@@ -395,9 +395,5 @@ public class YanagishimaConfig {
 			return false;
 		}
 		return true;
-	}
-
-	public boolean isUseOldPresto(String datasource) {
-		return Boolean.parseBoolean(properties.getProperty("use.old.presto." + datasource));
 	}
 }
