@@ -17,6 +17,8 @@ USER root
 COPY ./entrypoint.sh /
 RUN chmod a+x /entrypoint.sh
 
+WORKDIR /opt/sqleditor
+
 EXPOSE 9888
 
 ENTRYPOINT ["/entrypoint.sh"]
