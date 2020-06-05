@@ -6,7 +6,7 @@
           <div id="header-upper" class="py-2">
             <div class="row align-items-center">
               <div class="col-6">
-                <h1 id="logo"><a :href="buildTopUrl()"><span id="logo-figure" class="mr-2"></span>{{sitename}}</a><span class="ml-2 font-weight-normal">{{version}}</span></h1>
+                <h1 id="logo"><a :href="buildTopUrl()">{{sitename}}</a></h1>
               </div>
               <div class="col-6 text-right">
                 Readonly
@@ -137,12 +137,6 @@
         </template>
       </div>
     </div>
-
-    <footer id="footer" class="py-3">
-      <address class="text-center">
-        <span><strong>&copy; yanagishima</strong> by wyukawa and okazou</span>
-      </address>
-    </footer>
 
     <div id="comment" class="card" :class="{conpact: !visibleComment}" v-if="response && response.comment">
       <div class="card-header">

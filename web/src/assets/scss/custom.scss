@@ -52,14 +52,6 @@ $colors: #444, $primary, #1b5e20, #880e4f, #827717, #212121, #4e342e, #37474f;
     color: $white;
     text-decoration: none;
   }
-  #logo-figure {
-    display: inline-block;
-    vertical-align: middle;
-    width: 1.2rem;
-    height: 1.6rem;
-    background: url(../yanagishima.svg) 0 no-repeat;
-    background-size: contain;
-  }
 }
 
 #page {
@@ -167,7 +159,7 @@ $colors: #444, $primary, #1b5e20, #880e4f, #827717, #212121, #4e342e, #37474f;
 
 #content {
   min-height: 640px;
-  background: $body-bg url(../yanagishima.svg) 50% 65% no-repeat;
+  background: $body-bg;
   background-size: 320px;
   background-attachment: fixed;
   position: relative;

@@ -1,4 +1,4 @@
-export const SITENAME = 'yanagishima'
+export const SITENAME = 'BigConnect SQL Studio'
 
 export const VERSION = '22.0'
 

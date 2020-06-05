@@ -113,7 +113,7 @@ export default {
     a.setTheme(`ace/theme/${this.theme}`)
     a.getSession().setMode(new CustomSqlMode())
     a.getSession().setUseWrapMode(true)
-    a.setFontSize(13)
+    a.setFontSize(16)
     a.setValue(this.code, 1)
     a.setStyle(this.cssClass, true)
     a.commands.bindKey('Ctrl-P', 'golineup')

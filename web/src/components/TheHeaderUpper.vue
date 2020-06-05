@@ -4,44 +4,11 @@
       <div>
         <h1 id="logo" class="d-inline-block mr-4">
           <a :href="buildUrl({datasource, engine})" @click.prevent="$emit('logo-click')">
-            <span id="logo-figure" class="mr-2"></span>{{sitename}}
+            {{sitename}}
           </a>
         </h1>
-        <span class="mr-2">
-          <small>Source</small>
-          <template v-if="datasources && datasources.length > 1">
-            <div class="dropdown d-inline-block">
-              <button class="btn btn-sm btn-primary" data-toggle="dropdown">{{datasource}}</button>
-              <div class="dropdown-menu">
-                <button v-for="d in datasources" :key="d" class="dropdown-item" :class="{active: d === datasource}"
-                        @click.prevent="setDatasource(d)">{{d}}</button>
-              </div>
-            </div>
-          </template>
-          <template v-else>
-            <strong>{{datasource}}</strong>
-          </template>
-        </span>
-        <span class="mr-2">
-          <small>Engine</small>
-          <template v-if="engines[datasource] && engines[datasource].length > 1">
-            <div class="dropdown d-inline-block">
-              <button class="btn btn-sm btn-primary" data-toggle="dropdown">{{engine}}</button>
-              <div class="dropdown-menu">
-                <button v-for="e in engines[datasource]" :key="e" class="dropdown-item" :class="{active: e === engine}"
-                        @click="setEngine(e)">{{e}}</button>
-              </div>
-            </div>
-          </template>
-          <template v-else>
-            <strong>{{engine}}</strong>
-          </template>
-        </span>
       </div>
       <div>
-        <a href="#notification" class="text-white mr-2" data-toggle="modal" data-target="#notification">
-          <span class="notification-bell-wrapper" :class="{unread: hasNotificationUnread}"><i class="fas fa-lg fa-bell notification-bell"></i></span>
-        </a>
         <template v-if="auths[datasource]">
           <a href="#auth" class="text-white mr-2" data-toggle="modal" data-target="#auth">
             <i v-if="authUser" class="fas fa-lg fa-user"></i>
@@ -54,7 +21,7 @@
             <small class="dropdown-item-text text-muted ml-2">Version {{version}}</small>
             <div class="dropdown-divider my-1"></div>
             <a href="#help" class="dropdown-item mr-2" data-toggle="modal" data-target="#help">Help</a>
-            <a v-if="isPresto" href="https://prestosql.io/docs/current/" class="dropdown-item" target="_blank" rel="noopener">Presto Doc</a>
+            <a v-if="isPresto" href="https://docs.bigconnect.io/" class="dropdown-item" target="_blank" rel="noopener">Documentation</a>
             <a v-if="isHive" href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual" class="dropdown-item" target="_blank" rel="noopener">Hive Doc</a>
             <a v-if="isSpark" href="https://spark.apache.org/" class="dropdown-item" target="_blank" rel="noopener">Spark Doc</a>
           </div>

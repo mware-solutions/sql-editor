@@ -249,6 +249,7 @@ export default {
       this.$store.dispatch('qlist/getQlist', {isAutoQlist: false})
 
       this.setTitle()
+      this.checkAuth()
     },
     loadLocalStorageGlobal () {
       this.$store.commit('loadLocalStorage')
@@ -261,6 +262,7 @@ export default {
       this.$store.commit('history/loadLocalStorage', {datasource: this.datasource})
     },
     checkAuth () {
+      console.log('check auth')
       if (!this.auths[this.datasource]) {
         return
       }

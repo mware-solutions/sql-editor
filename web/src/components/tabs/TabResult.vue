@@ -197,7 +197,7 @@
                         </div>
                       </div>
                     </div>
-                    <a v-else href="#" @click.prevent="setPivot(1)"><i class="fa fa-fw fa-plus-square mr-1"></i>Pivot(Beta)</a>
+<!--                    <a v-else href="#" @click.prevent="setPivot(1)"><i class="fa fa-fw fa-plus-square mr-1"></i>Pivot(Beta)</a>-->
                   </div>
                   <ResultTable :result="response" :pretty="isPretty" :line="line" @line-click="toggleLine"/>
                 </template>

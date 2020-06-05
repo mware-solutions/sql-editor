@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1 id="logo"><span id="logo-figure" class="mr-2"></span>{{sitename}}<span class="ml-2 font-weight-normal">{{version}}</span>
-    </h1>
+    <h1 id="logo">{{sitename}}</h1>
     <div id="box" class="text-center">
       {{statusCode}}
     </div>
