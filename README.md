@@ -8,6 +8,7 @@
 git clone https://github.com/mware-solutions/sql-editor.git
 cd sql-editor
 git checkout -b [version] refs/tags/[version]
+export JAVA_HOME=<path-to-jdk11>
 ./gradlew distZip
 cd build/distributions
 unzip sql-editor-[version].zip
