@@ -6,5 +6,5 @@
 */
 export default {
   id: 1,
-  text: 'test announce'
+  text: 'Welcome !'
 }
